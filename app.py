@@ -11,12 +11,11 @@ downloads_folder = os.path.join(os.path.expanduser("~"), "Downloads")
 st.markdown(
     """
     <style>
-    /* Default gradient background */
+    /* Default gradient background with wave animation on hover */
     .stApp {
         background: linear-gradient(90deg, red, blue, purple);
         background-size: 400% 400%;
-        animation: Gradient 10s ease infinite; /* Continuous movement */
-        color: white; /* Text color */
+        animation: Gradient 10s ease infinite;
     }
 
     /* Keyframes for gradient movement */
@@ -28,7 +27,7 @@ st.markdown(
 
     /* Water wave effect on hover */
     .stApp:hover {
-        animation: WaveEffect 2s infinite; /* Wave animation */
+        animation: WaveEffect 2s infinite;
     }
 
     /* Keyframes for water wave animation */
@@ -38,20 +37,20 @@ st.markdown(
         100% {background-position: 0% 50%;}
     }
 
-    /* Shadow and glow effects for input boxes */
+    /* Styling for input boxes */
     .stTextInput {
         background-color: lightgray;
         padding: 10px;
         border: 2px solid lightgray;
         border-radius: 5px;
-        box-shadow: 3px 3px 5px gray; /* Shadow effect */
-        transition: 0.3s; /* Smooth transitions */
+        box-shadow: 3px 3px 5px gray;
+        transition: 0.3s;
     }
 
     /* Glow effect on hover */
     .stTextInput:hover {
         border-color: red;
-        box-shadow: 5px 5px 10px red; /* Glow effect */
+        box-shadow: 5px 5px 10px red;
     }
 
     .footer {
@@ -90,7 +89,7 @@ if st.button("Download"):
             # Display animation during download
             with st.spinner("Downloading, please wait..."):
                 for _ in range(3):
-                    st.text("🐇")  # Simple animation
+                    st.text("🐇")
                     sleep(1)
 
             # Initialize YouTube object
@@ -101,11 +100,12 @@ if st.button("Download"):
                 raise VideoUnavailable("This video is age-restricted and cannot be downloaded.")
 
             # Set stream according to format and resolution
-            if format_choice is "MP4":
+            if format_choice == "MP4":
                 stream = yt.streams.filter(
                     file_extension="mp4", res=resolution_choice
                 ).first()
             else:
+                stream is typically used to fetch data or files
                 stream = yt.streams.filter(only_audio=True).first()
 
             # Ensure the Downloads folder exists
@@ -123,7 +123,7 @@ if st.button("Download"):
         except VideoUnavailable as e:
             st.warning(f"Error: {e}")
 
-        except Exception as e, you'd rather
+        except Exception as e:
             st.error(f"An error occurred: {e}")
     else:
         st.warning("Please enter a YouTube video URL.")
