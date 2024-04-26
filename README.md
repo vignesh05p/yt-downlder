@@ -50,17 +50,3 @@ Here's how the app looks on a mobile device:
 
 ## Contributing
 Contributions to this project are welcome! If you'd like to contribute, please fork the repository, make your changes, and submit a pull request. Make sure your code follows the project's style and includes necessary documentation.
-
-## Contact
-If you have any questions or feedback, feel free to open an issue or contact the project maintainer.
-```
-
-### Explanation of the README
-- **Project Description**: Describes the YouTube video downloader, including its key features.
-- **Setup Instructions**: Provides detailed steps to clone the repository, install dependencies, and run the app.
-- **Images**: Displays images for the home page and phone interface to give users a visual representation of the app.
-- **Additional Information**: Offers tips for managing downloads and addresses common issues users might encounter.
-- **Contributing**: Includes a section on contributing to the project for collaborative development.
-- **Contact**: Provides guidance on how to reach the project maintainer for questions or feedback.
-
-This `README.md` should serve as a comprehensive guide for users and contributors to understand, set up, and work with your YouTube video downloader project.
