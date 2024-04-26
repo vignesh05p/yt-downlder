@@ -1,7 +1,6 @@
-Here's a sample `README.md` file for your GitHub repository describing the YouTube video downloader project. This file includes a brief project description, setup instructions, key features, and images demonstrating the app on a home page and a phone. It does not mention a license, as requested.
 
 ### README.md for YouTube Video Downloader
-```markdown
+
 # YouTube Video Downloader
 
 ![Home Page](https://github.com/vignesh05p/yt-downlder/blob/master/images/homee.PNG)
