@@ -11,11 +11,11 @@ downloads_folder = os.path.join(os.path.expanduser("~"), "Downloads")
 st.markdown(
     """
     <style>
-    /* Default gradient background with wave animation on hover */
+    /* Moving gradient background */
     .stApp {
-        background: linear-gradient(90deg, red, blue, purple);
-        background-size: 400% 400%;
-        animation: Gradient 10s ease infinite;
+        background: linear-gradient(45deg, #8B0000, #FF6347, #F08080, #FFFFFF);
+        background-size: 400% 400%; /* For smooth movement */
+        animation: Gradient 10s ease infinite; /* Gradual change in background */
     }
 
     /* Keyframes for gradient movement */
@@ -25,32 +25,20 @@ st.markdown(
         100% {background-position: 0% 50%;}
     }
 
-    /* Water wave effect on hover */
-    .stApp:hover {
-        animation: WaveEffect 2s infinite;
-    }
-
-    /* Keyframes for water wave animation */
-    @keyframes WaveEffect {
-        0% {background-position: 0% 50%;}
-        50% {background-position: 50% 100%;}
-        100% {background-position: 0% 50%;}
-    }
-
-    /* Styling for input boxes */
+    /* Shadow and glow effects for input boxes */
     .stTextInput {
         background-color: lightgray;
         padding: 10px;
         border: 2px solid lightgray;
         border-radius: 5px;
-        box-shadow: 3px 3px 5px gray;
-        transition: 0.3s;
+        box-shadow: 3px 3px 5px gray; /* Shadow effect */
+        transition: 0.3s; /* Smooth transitions */
     }
 
     /* Glow effect on hover */
     .stTextInput:hover {
         border-color: red;
-        box-shadow: 5px 5px 10px red;
+        box-shadow: 5px 5px 10px red; /* Glow effect */
     }
 
     .footer {
@@ -66,15 +54,13 @@ st.markdown(
 
 # Add a YouTube logo and title
 st.image(
-    "https://upload.wikimedia.org/wikipedia/commons/9/98/YouTube_Logo.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/9/98/YouTube_Logo.svg", 
     width=100,
-)  # YouTube logo
+) # YouTube logo
 st.title("YouTube Video Downloader")
 
-# Input field for YouTube video URL
-video_url = st.text_input(
-    "Enter YouTube video URL", placeholder="Enter a valid YouTube URL"
-)
+# Input field for YouTube video URL (without className)
+video_url = st.text_input("Enter YouTube video URL", key="video_url", placeholder="Enter a valid YouTube URL")
 
 # Format options
 format_choice = st.radio("Select Format", ("MP4", "MP3"))
@@ -89,7 +75,7 @@ if st.button("Download"):
             # Display animation during download
             with st.spinner("Downloading, please wait..."):
                 for _ in range(3):
-                    st.text("🐇")
+                    st.text("🐇")  # Simple animation
                     sleep(1)
 
             # Initialize YouTube object
@@ -105,7 +91,6 @@ if st.button("Download"):
                     file_extension="mp4", res=resolution_choice
                 ).first()
             else:
-                stream is typically used to fetch data or files
                 stream = yt.streams.filter(only_audio=True).first()
 
             # Ensure the Downloads folder exists
@@ -132,7 +117,7 @@ if st.button("Download"):
 st.markdown(
     """
     <div class="footer">
-        <h5>Made with love by Vignesh Prabhu</h5>
+        <h5>Made with 💖 by Vignesh Prabhu</h5>
     </div>
     """,
     unsafe_allow_html=True,
