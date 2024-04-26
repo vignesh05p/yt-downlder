@@ -11,17 +11,30 @@ downloads_folder = os.path.join(os.path.expanduser("~"), "Downloads")
 st.markdown(
     """
     <style>
-    /* Moving gradient background */
+    /* Default gradient background */
     .stApp {
-        background: linear-gradient(45deg, #8B0000, #FF6347, #F08080, #FFFFFF);
-        background-size: 400% 400%; /* For smooth movement */
-        animation: Gradient 10s ease infinite; /* Gradual change in background */
+        background: linear-gradient(90deg, red, blue, purple);
+        background-size: 400% 400%;
+        animation: Gradient 10s ease infinite; /* Continuous movement */
+        color: white; /* Text color */
     }
 
     /* Keyframes for gradient movement */
     @keyframes Gradient {
         0% {background-position: 0% 50%;}
         50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+
+    /* Water wave effect on hover */
+    .stApp:hover {
+        animation: WaveEffect 2s infinite; /* Wave animation */
+    }
+
+    /* Keyframes for water wave animation */
+    @keyframes WaveEffect {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 50% 100%;}
         100% {background-position: 0% 50%;}
     }
 
@@ -54,13 +67,15 @@ st.markdown(
 
 # Add a YouTube logo and title
 st.image(
-    "https://upload.wikimedia.org/wikipedia/commons/9/98/YouTube_Logo.svg", 
+    "https://upload.wikimedia.org/wikipedia/commons/9/98/YouTube_Logo.svg",
     width=100,
-) # YouTube logo
+)  # YouTube logo
 st.title("YouTube Video Downloader")
 
-# Input field for YouTube video URL (without className)
-video_url = st.text_input("Enter YouTube video URL", key="video_url", placeholder="Enter a valid YouTube URL")
+# Input field for YouTube video URL
+video_url = st.text_input(
+    "Enter YouTube video URL", placeholder="Enter a valid YouTube URL"
+)
 
 # Format options
 format_choice = st.radio("Select Format", ("MP4", "MP3"))
@@ -86,7 +101,7 @@ if st.button("Download"):
                 raise VideoUnavailable("This video is age-restricted and cannot be downloaded.")
 
             # Set stream according to format and resolution
-            if format_choice == "MP4":
+            if format_choice is "MP4":
                 stream = yt.streams.filter(
                     file_extension="mp4", res=resolution_choice
                 ).first()
@@ -108,7 +123,7 @@ if st.button("Download"):
         except VideoUnavailable as e:
             st.warning(f"Error: {e}")
 
-        except Exception as e:
+        except Exception as e, you'd rather
             st.error(f"An error occurred: {e}")
     else:
         st.warning("Please enter a YouTube video URL.")
@@ -117,7 +132,7 @@ if st.button("Download"):
 st.markdown(
     """
     <div class="footer">
-        <h5>Made with 💖 by Vignesh Prabhu</h5>
+        <h5>Made with love by Vignesh Prabhu</h5>
     </div>
     """,
     unsafe_allow_html=True,
